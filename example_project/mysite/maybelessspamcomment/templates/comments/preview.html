@@ -1,0 +1,35 @@
+
+
+{% load i18n %}
+{% include "comments/comments_style.html" %}
+
+<div id="comment-preview">
+	<div class="preview-message">
+	    {% if form.errors %}
+	    <h1>{% blocktrans count form.errors|length as counter %}Please correct the error below:{% plural %}Please correct the errors below:{% endblocktrans %}</h1>
+	    {% else %}
+	    <h1>{% trans "Preview your comment:" %}</h1>
+	    {% endif %}
+	</div>
+
+	{% if form.errors %}
+	{% else %}
+	<div class="actual-comment">
+	{% load markup %}
+	{{ comment|markdown:"safe" }}
+	</div>
+	{% endif %}
+</div>
+
+<div id="comment_form_div">
+{% load comments %}
+<form action="{% comment_form_target %}" method="post">{% csrf_token %}
+{% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
+<input type="hidden" name="redirect_url" value="{{ request.REQUEST.redirect_url }}" /> 
+{% include "comments/form_include.html" %}
+</form>
+</div>
+
+
+
+

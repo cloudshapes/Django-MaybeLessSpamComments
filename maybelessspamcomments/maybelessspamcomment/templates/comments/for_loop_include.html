@@ -1,0 +1,26 @@
+  {% for field in form %}
+    {% if field.is_hidden %}
+      {{ field }}
+    {% else %}
+        {% ifequal field.name "recaptcha" %}
+  	<div id="recaptcha_widget" style="display:none">
+	  	<div class="recaptcha_only_if_incorrect_sol comment_form_item" style="color:red">{% if field.errors %}{{ field.errors }}{% endif %}</div> 
+	  	<div id="recaptcha_image" ></div>
+	  	<div class="recaptcha_only_if_image comment_form_item">Please enter the words above:</div> 
+	  	<div class="recaptcha_only_if_audio comment_form_item">Please enter the numbers you hear:</div> 
+		<div class="comment_form_item"><input type="text" id="recaptcha_response_field" name="recaptcha_response_field" /></div>
+		<div class="comment_form_item">
+			<span><a href="javascript:Recaptcha.reload()">Try another CAPTCHA (image or audio)</a></span> 
+			<span class="recaptcha_only_if_image">&nbsp;|&nbsp;<a href="javascript:Recaptcha.switch_type('audio')">Get an audio CAPTCHA</a></span> 
+			<span class="recaptcha_only_if_audio">&nbsp;|&nbsp;<a href="javascript:Recaptcha.switch_type('image')"> Get an image CAPTCHA</a></span> 
+			<span>&nbsp;|&nbsp;<a href="javascript:Recaptcha.showhelp()">Help</a></span> 
+		</div>
+	</div>
+	{% else %}
+          {% if field.errors %}{{ field.errors }}{% endif %}
+        {% endifequal %}
+        <div class="{% ifequal field.name "honeypot" %}hidden_comment_form_item{% else %}comment_form_item{% endifequal %}">{{ field.label_tag }}</div>
+        <div class="{% ifequal field.name "honeypot" %}hidden_comment_form_item{% else %}comment_form_item{% endifequal %}">{{ field }}</div> 
+    {% endif %}
+  {% endfor %}
+

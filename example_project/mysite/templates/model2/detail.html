@@ -1,0 +1,11 @@
+<body>
+
+<br />Title: {{ model2.title }}<br />
+<br />Fieldmodel2: {{ model2.fieldmodel2 }}<br />
+<br />Pub date: {{ model2.pub_date }}<br />
+
+{% load comments %}
+{% render_comment_form for model2 %}
+{% render_comment_list for model2 %}
+</body>
+

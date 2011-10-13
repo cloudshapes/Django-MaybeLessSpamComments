@@ -1,0 +1,17 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_modify adminmedia %}
+
+
+
+{% block object-tools %}ddComment found on: [{{ original.content_object }}]
+{% if change %}{% if not is_popup %}
+  <ul class="object-tools">
+	<li><a href="history/" class="historylink">{% trans "History" %}</a></li>
+  	{% if has_absolute_url %}<li><a href="../../../r/{{ content_type_id }}/{{ object_id }}/" class="viewsitelink">{% trans "View on site" %}</a></li>{% endif%}
+  </ul>
+{% endif %}{% endif %}
+{% endblock %}
+
+
+
+

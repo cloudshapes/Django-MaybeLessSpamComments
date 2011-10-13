@@ -1,0 +1,9 @@
+Subject: New comment posted.
+On: {{ comment.content_object }}
+----- 
+{{ comment.get_as_text }}
+----
+
+
+
+

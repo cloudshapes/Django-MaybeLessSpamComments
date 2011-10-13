@@ -1,0 +1,11 @@
+
+<h1>Model 2 index</h1>
+{% if model2_list %}
+    <ul>
+    {% for model2 in model2_list %}
+        <li><a href="/model2/{{ model2.id }}/">{{ model2.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No model2's are available.</p>
+{% endif %}
