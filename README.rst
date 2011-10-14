@@ -125,9 +125,9 @@ Example Project:
 The "example_project" folder contains a sample project that uses Sqlite3, so if you have that installed, simply run "python manage.py runserver" from within the "example_project/mysite" folder. Without the Akismet or Recaptcha keys those particular items of functionality won't work, but there's not much more you need to do at this stage.
 
 
-Documentation
--------------
-Further detail documentation coming soon, will be up on http://www.cloudshapes.co.uk/ (at some point).
+Further Documentation
+----------------------------
+A bit more documentation will be coming soon - including screen-grabs - and will eventually be up on http://www.cloudshapes.co.uk/ (at some point).
 
 
 
